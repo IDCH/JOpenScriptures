@@ -1,0 +1,11 @@
+This is an (unofficial) implementation of the core data models and API currently being discussed and designed by the folks over at OpenScriptures.org.
+
+Copyright (C) 2012 Institute for Digital Christian Heritage
+
+Dual licensed under the MIT or GPL Version 2 licenses.
+MIT License: http://creativecommons.org/licenses/MIT/
+GPL 2.0 license: http://creativecommons.org/licenses/GPL/2.0/
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
