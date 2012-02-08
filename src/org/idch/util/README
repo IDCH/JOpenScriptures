@@ -1,0 +1,4 @@
+This is common functionality that has been temporarily migrated from the 
+IDCHCore project for simplicitly while that project is restructured and moved
+to GitHub. This will eventually be refactored out of this project and should 
+not be changed. 
