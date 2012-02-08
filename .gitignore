@@ -2,3 +2,6 @@
 /.project
 /build.properties
 /.settings
+/WebContent/WEB-INF/lib
+WebContent/WEB-INF/classes/
+build

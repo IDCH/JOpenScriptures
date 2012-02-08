@@ -21,7 +21,7 @@
 <!==  of the target by prefixing "basic." onto the target name. See build.xml for documentation
 <!==  of the properties, paths, and targets that are available for customization.
 <!== ==================================================================================== -->
-<project name="nttext" default="package" basedir=".">
+<project name="JOpenScriptures" default="package" basedir=".">
 
   <!-- Import the default project properties -->
   <property name="build.properties" value="${basedir}/build.properties"/>
