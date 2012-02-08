@@ -2,7 +2,8 @@
 <ivy-module version="2.0">
   <info organisation="org.idch" module="JOpenScriptures">
     <description homepage="http://www.idch.org">
-      
+      (Unofficial) Java implementation of many of the ideas and tools being
+      discussed by the folks at OpenScriptures.org  
     </description>
   </info>
   <configurations>
@@ -19,17 +20,6 @@
   </configurations>
   
   <dependencies defaultconfmapping="compile->compile(*),master(*);runtime->runtime(*)">
-   <!-- 
-    <dependency org="org.idch" name="IDCHCore" rev="latest.integration"/>
-    <dependency org="com.googlecode.json-simple" name="json-simple" rev="1.1"/>
-    <dependency org="org.apache.commons" name="commons-lang" rev="2.1"/>
-    <dependency org="freemarker" name="freemarker" rev="2.3.8"/>
-    <dependency org="mysql" name="mysql-connector-java" rev="5.1.18"/>
-    <dependency org="org.slf4j" name="slf4j-log4j12" rev="1.6.1"/>
-    <dependency org="hsqldb" name="hsqldb" rev="1.8.0.7"/>
-    <dependency org="org.idch" name="IDCHCore" rev="latest.integration"/>
-     --> 
-     
     <dependency org="com.ibm.icu" name="icu4j" rev="3.8"/>
     <dependency org="org.apache" name="log4j" rev="1.2.14"/>
     <dependency org="org.apache.commons" name="commons-lang" rev="2.1"/>
