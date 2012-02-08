@@ -23,15 +23,14 @@
 <!== ==================================================================================== -->
 <project name="nttext" default="package" basedir=".">
 
-  <!-- Import the basic default project -->
+  <!-- Import the default project properties -->
   <property name="build.properties" value="${basedir}/build.properties"/>
+  <property file="${build.properties}"/>
   
   <!-- TODO Logal Config Info -->
-  <property name="buildtools.path" value="H:/IDCH/Development/Workspaces/build-tools"/>
-  
-  <import file="${buildtools.path}/basic.xml"/>
-  <import file="${buildtools.path}/hibernate.xml"/>
-  <import file="${buildtools.path}/dbutils.xml"/>
+  <import file="${buildtools.dir}/basic.xml"/>
+  <import file="${buildtools.dir}/hibernate.xml"/>
+  <import file="${buildtools.dir}/dbutils.xml"/>
 
   <path id="src.path">
     <pathelement location="${src.dir}"/>

@@ -34,6 +34,7 @@ build.dir = ${basedir}/build
 javadoc.dir = ${basedir}/doc
 dist.dir = ${basedir}/dist
 meta.dir = ${web.dir}/META-INF
+buildtools.dir = ../build-tools
 
 # ========================================================================================
 # Web application properties. Uncomment and edit these to add support for building a 
