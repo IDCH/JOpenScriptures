@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- ===================================================================================== ==>
+<!== This Ant build file is suitable for a basic Ant/Ivy project. If your project's basedir 
+<!== is a sibling of the build-tools directory, all you need to do in order to get up and 
+<!== running is:
+<!==    1. Copy this file to your project directory as build.xml, and fill in the project 
+<!==       "name" attribute
+<!==    2. Copy ivy.xml.example to your project directory as ivy.xml and customize it for 
+<!==       your project
+<!==    3. Put your Java files under ${basedir}/src
+<!==
+<!== Voila! Now, you should be able to clean, compile, generate Javadocs...all sorts of 
+<!== good stuff. If your project has "special needs", the basic build configuration is highly 
+<!== customizable. You can override the values of Ant properties, <path> elements, etc. by 
+<!== defining them yourself, either in this file (do it before the <import> ofbasic.xml) or 
+<!== in the optional properties file ${basedir}/build.properties, which will be read by 
+<!== basic.xml as its first action (you can even change this filename by defining 
+<!== ${build.properties}). You can also override the implementations and/or dependencies of 
+<!== the various <target>s in build.xml in your build file (you can call the original version
+<!==  of the target by prefixing "basic." onto the target name. See build.xml for documentation
+<!==  of the properties, paths, and targets that are available for customization.
+<!== ==================================================================================== -->
+<project name="nttext" default="package" basedir=".">
+
+  <!-- Import the basic default project -->
+  <property name="build.properties" value="${basedir}/build.properties"/>
+  
+  <!-- TODO Logal Config Info -->
+  <property name="buildtools.path" value="H:/IDCH/Development/Workspaces/build-tools"/>
+  
+  <import file="${buildtools.path}/basic.xml"/>
+  <import file="${buildtools.path}/hibernate.xml"/>
+  <import file="${buildtools.path}/dbutils.xml"/>
+
+  <path id="src.path">
+    <pathelement location="${src.dir}"/>
+    <pathelement location="${basedir}/servlets"/>
+  </path>
+
+  <path id="lib.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+    </fileset>
+    <fileset dir="/usr/share/tomcat6/lib">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+
+  <!-- TODO: there's a lot to be improved here:
+             1. Move this into a sharable location (e.g., build-tools/basic-servelet.xml)
+             2. Make a property identifying the war file name
+             3. Support Tomcat's manager application, and other servelet engines
+             4. Fix the directory structure here. What we have now is dictated by how Eclipse
+                interacts with Tomcat.
+             5. Better messaging when deployment fails (e.g., run with inadequate permissions)
+  -->
+  <target name="war" description="Builds a Web ARchive for deployment to a servelet container" depends="compile">
+    <war destfile="${build.dir}/commentary.war"
+         webxml="${basedir}/WebContent/WEB-INF/web.xml">
+      <classes dir="${classfile.dir}"/>
+      <lib dir="${lib.dir}">
+        <exclude name="mysql-connector-java*.jar"/>
+      </lib>
+      <fileset dir="${basedir}/WebContent">
+        <exclude name="WEB-INF"/>
+        <exclude name="META-INF"/>
+        <exclude name="classes"/>
+      </fileset>
+    </war>
+  </target>
+
+  <target name="deploy" description="Deploys the application to a servelet container" depends="war" if="tomcat.home">
+    <echo message="Copying war file (${build.dir}/commentary.war) to ${tomcat.home}/webapps"/>
+    <copy file="${build.dir}/commentary.war"
+          toDir="${tomcat.home}/webapps"/>
+  </target>
+
+</project>
