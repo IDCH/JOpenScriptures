@@ -20,6 +20,7 @@
   </configurations>
   
   <dependencies defaultconfmapping="compile->compile(*),master(*);runtime->runtime(*)">
+    <dependency org="org.idch" name="idch-utils" rev="latest.integration"/>
     <dependency org="com.ibm.icu" name="icu4j" rev="3.8"/>
     <dependency org="org.apache" name="log4j" rev="1.2.14"/>
     <dependency org="org.apache.commons" name="commons-lang" rev="2.1"/>
